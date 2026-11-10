@@ -1,4 +1,4 @@
- import secrets
+import secrets
 
 chars = []
 
@@ -15,8 +15,17 @@ while True:
         print("Thank you for using!")
         break
     length = int(raw)
+    guaranteed = [
+        secrets.choice(LOWERCASE),
+        secrets.choice(UPPERCASE),
+        secrets.choice(DIGITS),
+        secrets.choice(SYMBOLS),
+    ]
     chars = []
-    for i in range(length):
+    for i in range(length - 4):
         chars.append(secrets.choice(alphabet))
+    chars = guaranteed + chars
+    rng = secrets.SystemRandom()
+    rng.shuffle(chars)
     password = "".join(chars)
     print(f"\nYour password: {password} consisting of {length} characters\n")
