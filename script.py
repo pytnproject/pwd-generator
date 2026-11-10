@@ -15,6 +15,12 @@ while True:
         print("Thank you for using!")
         break
     length = int(raw)
+    if length < 8:
+        print("\nLength must be at least 8!\n")
+        continue
+    elif length >= 129:
+        print("\nLength must not exceed 128 characters!\n")
+        continue
     guaranteed = [
         secrets.choice(LOWERCASE),
         secrets.choice(UPPERCASE),
